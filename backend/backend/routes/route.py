@@ -17,13 +17,12 @@ def get_questions(
     return QuestionsResponse(data=result)
 
 @router.post("/questions/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
-def submit_question(
+async def submit_question(
     questions: QuestionsResponse,
     service: QuestionService = Depends(QuestionService)
 ) -> None:
     """"""
-    print(questions)
-    service.post_questions(questions)
+    await service.post_questions(questions)
 
 @router.get("/categories", status_code=status.HTTP_200_OK)
 def get_categories() -> List[Categorie]:
