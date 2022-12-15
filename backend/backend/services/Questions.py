@@ -1,5 +1,5 @@
 from typing import List
-from services.openai import OpenAIService
+from services.OpenAI import OpenAIService
 from schemas.questions import Question, QuestionsResponse
 
 class QuestionService:
