@@ -2,7 +2,7 @@ from fastapi import APIRouter, status, Depends
 from typing import List
 from schemas.categories import Categorie
 from schemas.questions import QuestionsResponse
-from services.Questions import QuestionService
+from services.questions import QuestionService
 
 
 # router
