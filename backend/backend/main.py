@@ -9,8 +9,7 @@ app: FastAPI = FastAPI()
 # Middleware
 app.add_middleware(
     CORSMiddleware,
-    # allow_origin_regex=r"*",
-    allow_credentials=True,
+    allow_origin_regex=r"http://localhost:8081/*",
     allow_methods=['*'],
     allow_headers=['*'],
 )
