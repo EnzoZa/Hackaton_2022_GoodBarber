@@ -1,5 +1,6 @@
 from ast import Dict
 from typing import List
+import webbrowser
 from schemas.articles import Articles
 from services.openai import OpenAIService
 from schemas.questions import Question, QuestionsResponse
@@ -44,7 +45,7 @@ class QuestionService:
 
         api.search(search, page=1, results_per_page=10)
         photos = api.get_entries()
-        photo_to_diplay = [photo.url for photo in photos]
+        photo_to_diplay = [photo.tiny for photo in photos]
 
         soup = BeautifulSoup(articles.articles, 'html.parser')
         h1s = soup.find_all('h1')
@@ -60,7 +61,7 @@ class QuestionService:
                 h1.insert_before(img_tag)
             except:
                 pass
-        
+
         articles.articles = soup.prettify()
         path = os.path.abspath(os.path.dirname(__file__))
 
@@ -69,10 +70,9 @@ class QuestionService:
             lines = f.read()
 
         lines = lines.replace("{{titleName}}", articles.title)
-        lines = lines.replace("{{logo}}", logo.url)
+        lines = lines.replace("{{logo}}", logo[0].large2x)
         lines = lines.replace("{{brandName}}", articles.company_name)
         lines = lines.replace("{{titleSection}}", articles.title)
-        lines = lines.replace("{{introducingProposal}}", articles.description)
         lines = lines.replace("{{descriptionProposal}}", articles.description)
         lines = lines.replace("{{articles}}", articles.articles)
 
@@ -82,3 +82,5 @@ class QuestionService:
 
         with open(f"{path}/template/template.html", "w") as f:
             f.write(lines)
+
+        webbrowser.open_new_tab(f"{path}/template/template.html")
