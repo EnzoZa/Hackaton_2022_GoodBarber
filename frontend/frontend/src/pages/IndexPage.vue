@@ -15,7 +15,7 @@
             title="Inline Frame Example"
             width="100%"
             height="750px"
-            src="/Users/a1201/Desktop/Hackaton_2022_GoodBarber/backend/backend/services/template/template.html">
+            src="/backend/backend/services/template/template.html">
           </iframe>
         </div>
       </div>

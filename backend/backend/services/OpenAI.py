@@ -7,7 +7,7 @@ class OpenAIService:
     """OpenAI Service."""
 
     def __init__(self):
-        openai.api_key="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"
+        openai.api_key="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"
 
     def get_categorie_proposal(self , keyword: str):
         response = openai.Completion.create(
@@ -54,10 +54,11 @@ class OpenAIService:
             Maintenant Génère mon instruction dans clé articles en un seul champ String :
             Génère moi aussi 10 articles avec titre et description en html en rapport avec le '{keyword}' '{category}' qui intéresserai une personne vivant en {country} en 2022 pour un site de '{website_category}'.""",
             temperature=0,
-            max_tokens=2048,
+            max_tokens=3000,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0
         )
         articles = json.loads(response.choices[0].text)
+        print(articles)
         return Articles.parse_obj(articles)

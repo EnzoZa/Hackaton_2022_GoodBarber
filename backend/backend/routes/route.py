@@ -1,9 +1,10 @@
 from fastapi import APIRouter, status, Depends
+from fastapi.responses import HTMLResponse, FileResponse
 from typing import List
 from schemas.categories import Categorie
 from schemas.questions import QuestionsResponse
 from services.questions import QuestionService
-
+import os
 
 # router
 router: APIRouter = APIRouter(prefix="")
@@ -33,3 +34,11 @@ def get_categories() -> List[Categorie]:
         Categorie(id = 3,name = "Informatique")
     ]
     return categories
+
+@router.get("/files/{folder}/{subpath}", response_class=FileResponse)
+@router.get("/files/{subpath}", response_class=FileResponse)
+def iframe( subpath: str, folder: str= None):
+    if folder:
+        subpath = f"{folder}/{subpath}"
+    path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+    return f"{path}/services/template/{subpath}"
