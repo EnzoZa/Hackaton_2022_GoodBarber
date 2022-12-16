@@ -37,7 +37,7 @@ class QuestionService:
         PEXELS_API_KEY = '563492ad6f917000010000017678ae0d46924806bf5c88bffee69782'
         api = pexelsApi(PEXELS_API_KEY)
 
-        search = f"{keyword} {category} {website_category}"
+        search = f"{keyword} {category} {country}"
 
         # search main photo
         api.search(search, page=1, results_per_page=1)

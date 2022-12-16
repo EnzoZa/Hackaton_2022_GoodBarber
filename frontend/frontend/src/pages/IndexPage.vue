@@ -19,7 +19,6 @@
           </iframe>
         </div>
       </div>
-      <p>{{questions}}</p>
     </q-layout>
   </q-page-container>
 </template>

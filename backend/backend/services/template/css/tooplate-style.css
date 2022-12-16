@@ -413,6 +413,12 @@ a:hover, a:active, a:focus {
   TEXT              
 -----------------------------------------*/
 
+#service div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #service div *{
   text-align: center;
 }
@@ -424,11 +430,11 @@ a:hover, a:active, a:focus {
   CONTACT             
 -----------------------------------------*/
 
-#contact {
+/* #contact {
   background: url('../images/contact-bg.jpg') 50% 0 repeat-y fixed;
   background-size: cover;
   background-position: center center;
-}
+} */
 
 #contact-form {
   padding-top: 22px;
