@@ -2,7 +2,7 @@ from fastapi import APIRouter, status, Depends
 from typing import List
 from schemas.categories import Categorie
 from schemas.questions import QuestionsResponse
-from services.Questions import QuestionService
+from services.questions import QuestionService
 
 
 # router
@@ -17,12 +17,12 @@ def get_questions(
     return QuestionsResponse(data=result)
 
 @router.post("/questions/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
-async def submit_question(
+def submit_question(
     questions: QuestionsResponse,
     service: QuestionService = Depends(QuestionService)
 ) -> None:
     """"""
-    await service.post_questions(questions)
+    service.post_questions(questions)
 
 @router.get("/categories", status_code=status.HTTP_200_OK)
 def get_categories() -> List[Categorie]:
