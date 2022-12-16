@@ -15,7 +15,7 @@
             title="Inline Frame Example"
             width="100%"
             height="750px"
-            src="/backend/backend/services/template/template.html">
+            src="http://localhost:8000/files/template.html">
           </iframe>
         </div>
       </div>

@@ -7,7 +7,7 @@ class OpenAIService:
     """OpenAI Service."""
 
     def __init__(self):
-        openai.api_key="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"
+        openai.api_key="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"
 
     def get_categorie_proposal(self , keyword: str):
         response = openai.Completion.create(
