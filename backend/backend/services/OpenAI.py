@@ -14,7 +14,7 @@ class OpenAIService:
         model="text-davinci-003",
         prompt=f"""
             Voici une liste de thème dis moi de quelle thème se rapproche le plus ce mot (même si c'est le thème en question) :
-            Thème : Sport, Évènementiel, Écologie, Informatique, Vêtement, Touriste, Blog, Personnel, Religion, Touristique, Cours, Créateur de contenu, Vente, Association, Restaurant, Radio, Épicerie
+            Thème : Sport, Évènementiel, Écologie, Informatique, Vêtement, Automobile, Blog, Personnel, Religion, Touristique, Cours, Créateur de contenu, Vente, Association, Restaurant, Radio, Épicerie
             Par exemple : Vente : Vente, Musculation : Sport, Fête : Évènementiel, Arbre : Écologie, Portfolio : Personnel, Chrétien : Religion, Éducatif : Cours.
             Mais Sport ne donne pas Musculation, il redonne Sport : Sport : Sport. Pareil avec tout les autres thèmes
             {keyword} : """,
